@@ -1,0 +1,60 @@
+/* Контейнер для фото та точок, щоб вони вирівнювалися в один рядок */
+.popup-title {
+  display: flex;
+  align-items: flex-end; /* Вирівнювання точок по нижньому краю фото */
+  gap: 12px;           /* Відступ між фото та анімацією */
+}
+
+.popup-title img {
+  border-radius: 50%;   /* Опціонально: робить фото круглим, якщо потрібно */
+  object-fit: cover;
+}
+
+/* Контейнер для анімації друку */
+.typing-indicator {
+  position: absolute;
+  left: 90px;
+  display: inline-flex;
+  align-items: center;
+  background-color: #f5f2f1; /* М'який фон бульбашки чату */
+  padding: 10px 14px;
+  border-radius: 20px;
+  border-top-left-radius: 4px; /* Ефект хвостика повідомлення */
+  gap: 4px;
+  height: 24px;
+  box-sizing: border-box;
+}
+
+/* Самі точки */
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #7c6356; /* Колір точок у стилі вашого дизайну */
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+/* Затримка для створення послідовного зростання/стрибка від 1 до 3 */
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Ключові кадри анімації (зростання та рух вгору-вниз) */
+@keyframes typingBounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}

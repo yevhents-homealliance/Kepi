@@ -1,0 +1,180 @@
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(136, 101, 20, 0.4); /* Напівпрозорий фірмовий відтінок */
+  backdrop-filter: blur(4px); /* Ефект розмиття фону */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Стан відкриття (додайте клас .is-open до бекдропу) */
+.popup-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Контейнер модального вікна */
+.popup-window {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 3px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d7d7d7;
+  padding: 30px;
+  box-sizing: border-box;
+  position: relative;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #3a3a3a;
+}
+
+.popup-backdrop.is-open .popup-window {
+  transform: translateY(0);
+}
+
+/* Кнопка закриття (хрестик) */
+.popup-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #aa8282;
+  transition: all 0.2s ease;
+}
+
+.popup-close-btn:hover {
+  background-color: #f8f8f8;
+  color: #F39A2D; 
+}
+
+.popup-close-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Шапка поп-апу */
+.popup-header {
+  margin-bottom: 20px;
+}
+
+.popup-title {
+  position: relative;
+  color: #F39A2D;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+.popup-kepi {
+    height: 90px;
+    width: 100px;
+    animation: kepi 1s ease infinite;
+}
+@keyframes kepi {
+  0% { transform:  rotate(10deg); }
+  25% { transform:  rotate(0deg); }
+  50% { transform:  rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.popup-subtitle {
+  color: #8297aa;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Тіло поп-апу */
+.popup-body {
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 25px;
+  width: 100%;
+}
+
+
+.popup-dialog {
+    position: relative;
+    box-shadow: 0px 0px 25px #ddd;
+    margin-top: 25px;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+.popup-body p {
+  margin: 0 0 15px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Футер з кнопками */
+.popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+/* Кнопки всередині поп-апу */
+.btn-popup {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-popup-secondary {
+  background-color: transparent;
+  border: 1px solid #d7d7d7;
+  color: #3a3a3a;
+}
+
+.btn-popup-secondary:hover {
+  background-color: #f8f8f8;
+  border-color: #aa9382;
+}
+
+.btn-popup-primary {
+  background-color: #F39A2D;
+  border: 1px solid #F39A2D;
+  color: #ffffff;
+}
+
+.btn-popup-primary:hover {
+  background-color: #F39A2D;
+  border-color: #F39A2D;
+}
+
+/* Медіа-запити для мобільних */
+@media (max-width: 480px) {
+  .popup-backdrop {
+    padding: 15px;
+  }
+  .popup-window {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,10 @@
+<footer class="footer">
+    <div class="container footer-row">
+        <span>© 2026 </span>
+        <span>kepifindservice@gmail.com</span>
+        <div class="footer-contacts">
+            <span>+380631070646</span>
+            <span>+380637420986</span>
+        </div>
+    </div>
+</footer>
